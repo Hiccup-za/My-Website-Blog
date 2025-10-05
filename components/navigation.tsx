@@ -33,6 +33,13 @@ export default function Navigation({ currentPage }: NavigationProps) {
             </Button>
             <Button 
               size="sm" 
+              variant={currentPage === "references" ? "default" : "outline"}
+              asChild
+            >
+              <Link href="/references">References</Link>
+            </Button>
+            <Button 
+              size="sm" 
               variant={currentPage === "cv" ? "default" : "outline"}
               asChild
             >

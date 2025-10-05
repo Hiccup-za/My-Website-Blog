@@ -9,9 +9,9 @@ export function generateBlogPostMetadata(post: MarblePost): Metadata {
   const postUrl = `${baseUrl}/blog/${post.slug}`;
   
   return {
-    title: post.seo?.title || post.title,
-    description: post.seo?.description || post.excerpt || 'Read more about this topic',
-    keywords: post.seo?.keywords || [],
+    title: post.title,
+    description: post.excerpt || 'Read more about this topic',
+    keywords: [],
     authors: [{ name: post.author.name }],
     creator: post.author.name,
     publisher: 'Christopher Zeuch',

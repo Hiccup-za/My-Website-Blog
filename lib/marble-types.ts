@@ -81,6 +81,19 @@ export interface MarbleError {
   status?: number;
 }
 
+// Webhook event types
+export interface PostEventData {
+  event: string;
+  data: {
+    id: string;
+    slug: string;
+    title: string;
+    publishedAt: string;
+    updatedAt: string;
+    status: 'published' | 'draft' | 'archived';
+  };
+}
+
 // Query parameters for filtering posts
 export interface MarblePostQuery {
   page?: number;

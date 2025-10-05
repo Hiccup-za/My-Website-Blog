@@ -4,7 +4,9 @@ const key = process.env.MARBLE_WORKSPACE_KEY;
 
 export async function getPosts() {
   try {
-    const raw = await fetch(`${url}/${key}/posts`);
+    const raw = await fetch(`${url}/${key}/posts`, {
+      next: { tags: ["posts"] }
+    });
     const data = await raw.json();
     return data;
   } catch (error) {
@@ -24,7 +26,9 @@ export async function getTags() {
 
 export async function getSinglePost(slug: string) {
   try {
-    const raw = await fetch(`${url}/${key}/posts/${slug}`);
+    const raw = await fetch(`${url}/${key}/posts/${slug}`, {
+      next: { tags: ["posts"] }
+    });
     const data = await raw.json();
     return data;
   } catch (error) {

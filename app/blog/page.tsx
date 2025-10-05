@@ -4,8 +4,9 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import ReadMoreButton from '@/components/read-more-button';
 import Link from 'next/link';
-import { Calendar, User, Tag, ArrowLeft } from 'lucide-react';
+import { Calendar, User, Tag, ArrowLeft, Package, Tag as TagIcon, ChevronDown } from 'lucide-react';
 import Navigation from '@/components/navigation';
+import BlogFilters from '../../components/blog-filters';
 import type { Metadata } from 'next';
 
 // Revalidate this page every hour
@@ -18,16 +19,16 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  // Fetch blog data
+  // Fetch blog data on the server
   const [postsData, categoriesData, tagsData] = await Promise.all([
     getPosts(),
     getCategories(),
     getTags(),
   ]);
 
-  const { posts } = postsData;
-  const { categories } = categoriesData;
-  const { tags } = tagsData;
+  const posts = postsData?.posts || [];
+  const categories = categoriesData?.categories || [];
+  const tags = tagsData?.tags || [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -61,6 +62,8 @@ export default async function BlogPage() {
       {/* Blog Posts Grid */}
       <section className="pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          {/* Filter Dropdowns */}
+          <BlogFilters categories={categories} tags={tags} />
           {posts.length === 0 ? (
             <div className="text-center py-12">
               <h2 className="text-2xl font-semibold mb-4">No posts yet</h2>

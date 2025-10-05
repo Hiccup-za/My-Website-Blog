@@ -41,19 +41,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
       <div className="min-h-screen bg-background">
-        {/* Back Navigation */}
+        {/* Back Navigation - Hidden on mobile */}
         <section className="pt-20 pb-4 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <ReadMoreButton 
-              href="/blog"
-              variant="outline" 
-              size="sm"
-              className="flex items-center gap-2"
-              loadingText="Back to Blog"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Blog
-            </ReadMoreButton>
+            <div className="hidden md:block">
+              <ReadMoreButton 
+                href="/blog"
+                variant="outline" 
+                size="sm"
+                className="flex items-center gap-2"
+                loadingText="Back to Blog"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Blog
+              </ReadMoreButton>
+            </div>
           </div>
         </section>
 

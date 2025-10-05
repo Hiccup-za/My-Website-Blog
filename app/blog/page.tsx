@@ -36,19 +36,29 @@ export default async function BlogPage() {
       
       <div className="pb-16">
       {/* Header Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
+          {/* Desktop Layout - Back button and title in same row */}
+          <div className="hidden md:flex items-center justify-between mb-8">
             <Button variant="ghost" size="sm" asChild>
               <Link href="/">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Home
               </Link>
             </Button>
-            <h1 className="text-4xl md:text-6xl font-bold">
+            <h1 className="text-4xl lg:text-6xl font-bold">
               <span className="text-primary">Blog</span>
             </h1>
             <div className="w-24"></div> {/* Spacer for centering */}
+          </div>
+          
+          {/* Mobile Layout - Stacked */}
+          <div className="md:hidden">
+            <div className="text-center mb-6">
+              <h1 className="text-3xl font-bold">
+                <span className="text-primary">Blog</span>
+              </h1>
+            </div>
           </div>
           <div className="text-center">
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">

@@ -19,11 +19,6 @@ export interface MarblePost {
   author: MarbleAuthor;
   categories: MarbleCategory[];
   tags: MarbleTag[];
-  seo?: {
-    title?: string;
-    description?: string;
-    keywords?: string[];
-  };
 }
 
 export interface MarblePostList {
@@ -45,11 +40,6 @@ export interface MarbleAuthor {
     url: string;
     alt: string;
   };
-  social?: {
-    twitter?: string;
-    linkedin?: string;
-    github?: string;
-  };
 }
 
 export interface MarbleAuthorList {
@@ -61,7 +51,6 @@ export interface MarbleCategory {
   name: string;
   slug: string;
   description?: string;
-  color?: string;
 }
 
 export interface MarbleCategoryList {
@@ -72,7 +61,6 @@ export interface MarbleTag {
   id: string;
   name: string;
   slug: string;
-  color?: string;
 }
 
 export interface MarbleTagList {
